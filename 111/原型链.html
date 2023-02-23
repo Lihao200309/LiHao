@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Person{
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        sayHello(){
+            console.log(`你好 ${this.name}`);
+        }
+    }
+    class Student extends Person{
+        constructor(name,age,sex){
+            super(name,age)
+            this.sex = sex
+        }
+        learn(){
+            `666`
+        }
+    }
+
+
+    const zhangsan = new Student(`张三`,666,'男')
+    zhangsan.sayHello()
+    zhangsan.learn()
+
+    console.log(zhangsan instanceof Student);
+    console.log(zhangsan instanceof Person);
+    console.log(zhangsan instanceof Object);
+    console.log(zhangsan instanceof Array);
+
+
+    // let zhangsan = new Person('zhangsan',18);
+    // console.log(zhangsan.name);
+    // console.log(zhangsan.age);
+    // zhangsan,sayHello()
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 情况1.函数当前做返回值被返回
+    function fn(){
+        const a = 1
+        return function (){
+            console.log(a);
+        }
+    }
+    const a = 5 
+    const cb = fn()
+    cb()
+
+    // 情况2.函数当参数传递
+    function fn(cb){
+        const a = 100
+        cb()
+    }
+    const a =500
+    fn(function(){       
+        console.log(a);
+    })
+    //情况3.自执行匿名函数
+    (function (index){
+        console.log(index);
+    })(10)
+
+    // 隐藏变量
+    function fn() {
+        const data = {}
+        return {
+            set: function (key, val) {
+                data[key] = val
+            },
+            get: function (val) {
+                return data[val]
+            },
+        }
+    }
+    const json = fn()
+    json.set('age',18)
+    console.log(json.get('age'));
+</script>
+</html>
